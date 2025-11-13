@@ -6,7 +6,7 @@
 
 - **360° Surround Perception with 2D/3D Vision**
 
-    Equipped with 4 GMSL 2D + 4 GMSL 3D cameras for real-time SLAM, obstacle avoidance, mobile pedestrian detection, and scene awareness with millisecond-level frame sync.
+    Equipped with 4 GMSL 2D + 4 GMSL 3D cameras for real-time vSLAM, obstacle avoidance, mobile pedestrian detection, and scene awareness with millisecond-level frame sync.
 
 - **VLM-Driven Labeling + LLM Navigation**
     
