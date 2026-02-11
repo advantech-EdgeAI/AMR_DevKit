@@ -1,18 +1,18 @@
 front_upper_window:
-  type: "Gemini335L" #'none', 'plain', 'Gemini335L', 'SHF3L'
-  usb_port: 'gmsl2-0'
+  type: "Gemini335L" #"none", "plain", "Gemini335L", "SHF3L"
+  usb_port: "gmsl2-0"
 
 front_lower_window:
   type: "SHF3L"
-  video_device: /dev/gmsl_cam0
+  camera_serial: "2-001a"
 
 rear_upper_window:
   type: "Gemini335L"
-  usb_port: 'gmsl2-1'
+  usb_port: "gmsl2-1"
 
 rear_lower_window:
   type: "SHF3L"
-  video_device: /dev/gmsl_cam1
+  camera_serial: "2-001b"
 
 right_upper_window:
   type: "Gemini335L"
@@ -30,7 +30,7 @@ left_lower_window:
 
 
 front_right_corner:
-  type: "rplidar" #'none', 'rplidar'
+  type: "rplidar" #"none", "rplidar"
   udp_ip: "192.168.1.11"
 
 front_left_corner:

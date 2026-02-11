@@ -30,6 +30,7 @@ setup(
             'camera_resize = sensor_launch.camera_resize:main',
             'image_resize = sensor_launch.image_resize:main',
             'pointcloud_downsample = sensor_launch.pointcloud_downsample:main',
+            'sgx_yuv_gmsl_port_resolver = sensor_launch.sgx_yuv_gmsl_port_resolver:main'
         ],
     },
 )

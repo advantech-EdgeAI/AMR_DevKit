@@ -17,7 +17,7 @@ logger = get_logger('my_launch')
 # Schemas
 # ------------------------
 STRICT_SCHEMAS = {
-    "SHF3L": {"required": ["video_device"], "optional": []},
+    "SHF3L": {"required": ["camera_serial"], "optional": []},
     "Gemini335L": {"required": ["usb_port"], "optional": []},
     "rplidar": {"required": ["udp_ip"], "optional": []},
 }
@@ -25,7 +25,7 @@ STRICT_SCHEMAS = {
 PERMISSIVE_SCHEMAS = {
     "none": {"required": [], "optional": []},
     "plain": {"required": [], "optional": []},
-    "SHF3L": {"required": [], "optional": ["video_device"]},
+    "SHF3L": {"required": [], "optional": ["camera_serial"]},
     "Gemini335L": {"required": [], "optional": ["usb_port"]},
     "rplidar": {"required": [], "optional": ["udp_ip"]},
 }
@@ -160,14 +160,14 @@ def setup_sensors(context, *args, **kwargs):
             )
 
         # ---------- SHF3L ----------
-        elif sensor_type == "SHF3L" and "video_device" in cfg:
+        elif sensor_type == "SHF3L" and "camera_serial" in cfg:
             nodes.append(
                 Node(
                     package="sensor_launch",
                     executable="camera_v4l2",
                     name=f"{name}_camera",
                     namespace=name,
-                    parameters=[{"video_device": cfg["video_device"]}],
+                    parameters=[{"camera_serial": cfg["camera_serial"]}],
                 )
             )
 
