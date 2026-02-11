@@ -30,7 +30,20 @@ The DevKit architecture is designed to be the robust base layer of a robotic sta
 
 ## Installation Guide
 
-### 1. Compile the Workspace
+### 1. Install Dependencies
+
+```bash
+sudo apt update
+sudo apt install -y ros-$ROS_DISTRO-rmw-fastrtps-cpp ros-$ROS_DISTRO-rmw-cyclonedds-cpp ros-$ROS_DISTRO-rosbridge-server
+sudo apt install -y libgflags-dev nlohmann-json3-dev \
+    ros-$ROS_DISTRO-image-transport ros-${ROS_DISTRO}-image-transport-plugins ros-${ROS_DISTRO}-compressed-image-transport \
+    ros-$ROS_DISTRO-image-publisher ros-$ROS_DISTRO-camera-info-manager \
+    ros-$ROS_DISTRO-diagnostic-updater ros-$ROS_DISTRO-diagnostic-msgs ros-$ROS_DISTRO-statistics-msgs ros-$ROS_DISTRO-xacro \
+    ros-$ROS_DISTRO-backward-ros libdw-dev libssl-dev mesa-utils libgl1
+
+```
+
+### 2. Compile the Workspace
 
 ```bash
 ROS_WORKSPACE=~/ros2_ws
@@ -44,7 +57,7 @@ source $ROS_WORKSPACE/install/setup.bash
 echo "source $ROS_WORKSPACE/install/setup.bash" >> ~/.bashrc
 ```
 
-### 2. Check the Result
+### 3. Check the Result
 
 The ROS 2 package list should include the following three packages.
 
