@@ -1,0 +1,6 @@
+[submodule "rospkg/OrbbecSDK_ROS2"]
+	path = rospkg/OrbbecSDK_ROS2
+	url = https://github.com/orbbec/OrbbecSDK_ROS2.git
+[submodule "rospkg/sllidar_ros2"]
+	path = rospkg/sllidar_ros2
+	url = https://github.com/Slamtec/sllidar_ros2.git

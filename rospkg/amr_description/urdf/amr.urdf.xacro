@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<robot name="amr" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- args -->
+  <xacro:arg name="front_upper_window" default="SHF3L"/>
+  <xacro:arg name="front_lower_window" default="Gemini335L"/>
+  <xacro:arg name="rear_upper_window" default="SHF3L"/>
+  <xacro:arg name="rear_lower_window" default="Gemini335L"/>
+  <xacro:arg name="front_right_corner" default="rplidar"/>
+  <xacro:arg name="rear_left_corner" default="rplidar"/>
+
+  <!-- constants -->
+  <xacro:property name="M_PI" value="3.1415926535897931"/>
+
+  <!-- macro -->
+  <xacro:macro name="devkit_window" params="name sensor parent_link xyz rpy">
+    <!-- Mount link for this window -->
+    <link name="${name}_mount"/>
+    <joint name="${name}_joint" type="fixed">
+      <parent link="${parent_link}"/>
+      <child link="${name}_mount"/>
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+    </joint>
+
+    <!-- Insert sensor based on parameter -->
+    <xacro:if value="${sensor == 'Gemini335L'}">
+      <xacro:Gemini335L_plate parent_link="${name}_mount"/>
+    </xacro:if>
+
+    <xacro:if value="${sensor == 'SHF3L'}">
+      <xacro:SHF3L_plate parent_link="${name}_mount"/>
+    </xacro:if>
+    
+    <xacro:if value="${sensor == 'rplidar'}">
+      <xacro:rplidar parent_link="${name}_mount"/>
+    </xacro:if>
+
+  </xacro:macro>
+
+  <!-- include sensor modules -->
+  <xacro:include filename="$(find amr_description)/urdf/Gemini335L_plate.urdf.xacro"/>
+  <xacro:include filename="$(find amr_description)/urdf/SHF3L_plate.urdf.xacro"/>
+  <xacro:include filename="$(find amr_description)/urdf/rplidar.urdf.xacro"/>
+
+  <!-- base link -->
+  <link name="amr_base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 1.57"/>
+      <geometry>
+        <mesh filename="package://amr_description/meshes/visual/amr50.dae" scale="1 1 1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 1.57"/>
+      <geometry>
+        <mesh filename="package://amr_description/meshes/visual/amr50.dae" scale="1 1 1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1.0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="0.01" ixy="0.0" ixz="0.0" iyy="0.01" iyz="0.0" izz="0.01"/>
+    </inertial>
+  </link>
+
+  <!-- define windows -->
+  <xacro:devkit_window name="front_upper_window" sensor="$(arg front_upper_window)" parent_link="amr_base" xyz="0.00 0.2488 0.2781"  rpy="0 0 ${M_PI}"/>
+  <xacro:devkit_window name="front_lower_window" sensor="$(arg front_lower_window)" parent_link="amr_base" xyz="0.00 0.2488 0.2231"  rpy="0 0 ${M_PI}"/>
+  <xacro:devkit_window name="rear_upper_window"  sensor="$(arg rear_upper_window)"  parent_link="amr_base" xyz="0.00 -0.2488 0.2781" rpy="0 0 0"/>
+  <xacro:devkit_window name="rear_lower_window"  sensor="$(arg rear_lower_window)"  parent_link="amr_base" xyz="0.00 -0.2488 0.2231" rpy="0 0 0"/>
+  <xacro:devkit_window name="front_right_corner" sensor="$(arg front_right_corner)" parent_link="amr_base" xyz="0.1652 0.2052 0.3341" rpy="0 0 ${-M_PI*3/4}"/>
+  <!-- <xacro:devkit_window name="front_right_corner" sensor="$(arg front_right_corner)" parent_link="amr_base" xyz="0.1652 0.2052 0.3341" rpy="0 0 ${-M_PI/2}"/> -->
+  <xacro:devkit_window name="rear_left_corner"   sensor="$(arg rear_left_corner)"   parent_link="amr_base" xyz="-0.1652 -0.2052 0.3341" rpy="0 0 ${M_PI/4}"/>
+  <!-- <xacro:devkit_window name="rear_left_corner"   sensor="$(arg rear_left_corner)"   parent_link="amr_base" xyz="-0.1652 -0.2052 0.3341" rpy="0 0 ${M_PI/2}"/> -->
+</robot>

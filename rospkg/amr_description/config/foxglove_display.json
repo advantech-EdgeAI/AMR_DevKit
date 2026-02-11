@@ -1,0 +1,83 @@
+{
+  "configById": {
+    "3D!oob84y": {
+      "cameraState": {
+        "perspective": true,
+        "distance": 1.4619545302573207,
+        "phi": 68.89366272825124,
+        "thetaOffset": 42.29323308271174,
+        "targetOffset": [
+          0.2701850672691921,
+          0.2309611977366082,
+          -3.630946010779414e-17
+        ],
+        "target": [
+          0,
+          0,
+          0
+        ],
+        "targetOrientation": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "fovy": 45,
+        "near": 0.5,
+        "far": 5000
+      },
+      "followMode": "follow-pose",
+      "fixedFrame": "amr_base",
+      "scene": {
+        "transforms": {
+          "visible": false
+        }
+      },
+      "transforms": {},
+      "topics": {
+        "/robot_description": {
+          "visible": true
+        }
+      },
+      "layers": {
+        "grid": {
+          "visible": true,
+          "drawBehind": false,
+          "label": "Grid",
+          "instanceId": "ce9d071f-9230-4cea-b8d1-5cf2a33bc863",
+          "layerId": "foxglove.Grid",
+          "size": 10,
+          "divisions": 10,
+          "lineWidth": 1,
+          "color": "#248eff",
+          "position": [
+            0,
+            0,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      "publish": {
+        "type": "point",
+        "poseTopic": "/move_base_simple/goal",
+        "pointTopic": "/clicked_point",
+        "poseEstimateTopic": "/initialpose",
+        "poseEstimateXDeviation": 0.5,
+        "poseEstimateYDeviation": 0.5,
+        "poseEstimateThetaDeviation": 0.26179939
+      },
+      "imageMode": {}
+    }
+  },
+  "globalVariables": {},
+  "userNodes": {},
+  "playbackConfig": {
+    "speed": 1
+  },
+  "layout": "3D!oob84y"
+}

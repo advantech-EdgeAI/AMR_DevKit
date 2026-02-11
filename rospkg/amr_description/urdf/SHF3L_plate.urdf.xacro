@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="SHF3L_plate" params="parent_link">
+    <link name="${parent_link}_SHF3L"/>
+
+    <joint name="${parent_link}_SHF3L_joint" type="fixed">
+      <parent link="${parent_link}"/>
+      <child link="${parent_link}_SHF3L"/>
+    </joint>
+  </xacro:macro>
+
+</robot>
