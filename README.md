@@ -124,9 +124,7 @@ In the DevKit configuration, you can easily change which sensors are used and wh
     3. Save the file and re-build the package:
 
         ```bash
-        cd ~/ros2_ws
         colcon build --packages-select devkit_description
-        source install/setup.bash
         ```
 
 Note: This feature is only available for the `devkit_description` package.
